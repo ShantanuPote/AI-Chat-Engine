@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose")
 
-const mongoose = requie('mongoose')
+const mongoose = require('mongoose')
 
 const chatSchema = new mongoose.Schema({
     user:{
