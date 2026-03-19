@@ -5,11 +5,27 @@ const ai = new GoogleGenAI({});
 
 async function generateResponse(content) {
     const response = await ai.models.generateContent({
-      model: "gemini-3-flash-preview",
+      model: "gemini-2.0-flash",
       contents: content,
     });
     return response.text;
 }
 
-module.exports ={ generateResponse };
+async function generateVector(content){
+  const response = await ai.models.embedContent({
+    model: 'gemini-embedding-001',
+    contents: content,
+    config: {
+      outputDimensionality: 768
+  }
+});
+
+console.log(response)
+return response.embeddings[ 0 ].values
+
+}
+
+
+
+module.exports ={ generateResponse, generateVector };
 
