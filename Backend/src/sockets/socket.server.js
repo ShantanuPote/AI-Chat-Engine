@@ -13,7 +13,7 @@ function initSocketServer(httpServer){
     const io = new Server(httpServer, { /* options */ }); 
 
     io.use(async (socket, next) => {
-
+ 
       const cookies = cookie.parse(socket.handshake.headers?.cookie || "");
 
       if (!cookies.token) {
@@ -104,7 +104,7 @@ function initSocketServer(httpServer){
           ]
 
 
-          const response = await aiService.generateResponse([...ltm, ...stm])
+          const response = await generateResponse([...ltm, ...stm])
 
 
 

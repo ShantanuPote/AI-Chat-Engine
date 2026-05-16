@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap');
+
+@import "tailwindcss";
+
+:root {
+  --font-display: "Newsreader", serif;
+  --font-sans: "Space Grotesk", sans-serif;
+  --color-bg: #0b0b0c;
+  --color-surface: rgba(18, 18, 20, 0.95);
+  --color-surface-strong: #141417;
+  --color-border: #222228;
+  --color-text: #f4f4f6;
+  --color-muted: #9c9ca8;
+  --color-accent: #79d5c1;
+  --color-accent-2: #ff8a5b;
+  --color-accent-soft: rgba(121, 213, 193, 0.2);
+  --color-accent-soft-2: rgba(255, 138, 91, 0.24);
+  --radius: 18px;
+  --shadow-soft: 0 20px 45px -35px rgba(0, 0, 0, 0.7);
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after { 
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: var(--font-sans);
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--color-bg);
+    color: var(--color-text);
+  }
+
+  a {
+    color: inherit;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hidden {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+}

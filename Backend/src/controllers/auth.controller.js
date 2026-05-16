@@ -43,13 +43,13 @@ async function loginUser( req, res){
     const user = await userModel.findOne({email});
 
     if(!user){
-        res.status(400).json({message : "unauthorized"})
+        return res.status(400).json({message : "unauthorized"})
     }
 
     const isPasswordValid = await bcrypt.compare(password, user.password);
 
     if(!isPasswordValid){
-        res.status(400).json({message : "Invalid Password"})
+        return res.status(400).json({message : "Invalid Password"})
     }
 
     const token = jwt.sign({id : user._id}, process.env.JWT_SECRET);
